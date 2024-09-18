@@ -1,0 +1,8 @@
+@EndUserText.label: 'Travel Approval'
+define service Ysd_atravel_log {
+  expose Y_C_ATRAVEL_LOG as Travel;
+  expose y_c_booklog_log as Booking;
+  expose /DMO/I_Customer as Passenger;
+  expose /DMO/I_Agency   as Agency;
+  expose I_Currency      as Currency;
+}
