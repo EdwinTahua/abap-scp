@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition Libros'
+define service Ysd_libros {
+  expose yc_libros    as Libros;
+  expose yc_clientes  as Clientes;
+  expose yc_clnts_lib as Clnts_Lib;
+}

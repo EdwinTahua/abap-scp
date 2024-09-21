@@ -1,0 +1,117 @@
+@Metadata.layer:#CORE
+@Search.searchable: true
+@UI:{
+    headerInfo: {
+    typeName: 'Cliente',
+    typeNamePlural: 'Clientes',
+    title: {
+        type: #STANDARD,
+//        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'IdCliente'
+    }
+}}
+annotate entity yc_clientes with
+{
+  @UI.facet: [
+
+  {
+      id: 'DetallesCliente',
+      label: 'Lista Clientes2',
+      purpose: #HEADER,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'hdr_cliente'
+  },
+
+  {
+      id: 'DetallesCliente',
+      label: 'General Information',
+      type: #COLLECTION,
+      position: 10
+  },
+      {
+          id: 'Cliente',
+          parentId: 'DetallesCliente',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          label: 'Detalles-Cliente',
+          position: 10
+  //          targetElement: 'NombreCompleto'
+      },
+
+      {
+  type: #FIELDGROUP_REFERENCE ,
+             label : 'Datos Contacto',
+             targetQualifier: 'fgContacto' ,
+             parentId: 'DetallesCliente' ,
+             id : 'idGroupContacto' ,
+             position: 20
+      }
+  ]
+
+  @UI: {
+      lineItem: [{
+          position: 10,
+  //          actionGroupId: '',
+  //          exclude: true,
+  //          hidden: true,
+  //          inline: true,
+  //          determining: true,
+          importance: #HIGH
+      }]
+  //      identification: [{ position: 10, label: 'IdClienteo[1,...,99999999]'
+  //       }]
+  //       fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                      position: 10 }],
+  //       identification: [{ position: 10, label: 'Cliente' }]
+  }
+  @Search.defaultSearchElement: true
+  @UI.fieldGroup: [{ qualifier: 'hdr_cliente' , position: 10, label: 'IDCliente' }]
+  IdCliente;
+  @UI : { lineItem: [{ position: 20,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 20 }],
+  //       identification: [{ position: 20, label: 'TpAcceso', qualifier: 'Cliente' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 10 }]
+  @UI.identification: [{ position: 20 }]
+  TipoAcceso;
+  @UI : { lineItem: [{ position: 30,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 30 }]
+  //  identification: [{ position: 25, label: 'IDLibro' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 20 }]
+  //  @UI.identification: [{ position: 30 }]
+  @UI.fieldGroup: [{ qualifier: 'hdr_cliente' , position: 20 }]
+  IdLibro;
+  @UI : { lineItem: [{ position: 40,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 40, label: 'Nombre' }]
+  NombreCompleto;
+  @UI : { lineItem: [{ position: 50,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'Cliente',
+  //                          position: 50 }]
+  //  identification: [{ position: 10, label: 'Email', qualifier: 'fgContacto' }]
+        }
+
+  @UI.fieldGroup: [{ qualifier: 'fgContacto' , position: 10 }]
+
+  Email;
+  @UI : { lineItem: [{ position: 60,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'Cliente',
+  //                          position: 60 }]
+  //  identification: [{ position: 20, label: 'URL', qualifier: 'fgContacto' }]
+        }
+  @UI.fieldGroup: [{ qualifier: 'fgContacto' , position: 20 }]
+  Url;
+
+}

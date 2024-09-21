@@ -1,0 +1,155 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+//@UI:{
+//    headerInfo: {
+//    typeName: 'Libro',
+//    typeNamePlural: 'Libros',
+//    title: {
+//        type: #STANDARD,
+////        criticalityRepresentation: #WITHOUT_ICON,
+//        value: 'IdLibro'
+//    }
+//}}
+@UI.headerInfo: { typeName: 'Libro' ,
+                  typeNamePlural: 'NºLibros' ,
+                  title: { type: #STANDARD ,
+                  value: 'IdLibro'} ,
+                  description: { type: #STANDARD,
+                                  value: 'Descripcion' }
+                  }
+annotate entity yc_libros with
+{
+  @UI.facet: [
+
+  {
+      id: 'DetallesLibro',
+      label: 'InfoLibro',
+      purpose: #HEADER,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'hdr_libro'
+  },
+  {
+      id: 'Libro',
+      purpose: #STANDARD,
+      position: 10,
+      label: 'Libro',
+      type: #IDENTIFICATION_REFERENCE },
+      {
+          id: 'Cliente',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          label: 'Cliente',
+          position: 20,
+          targetElement: '_Clientes'
+      }
+  ]
+
+  @UI: {
+      lineItem: [{
+          position: 10,
+  //          actionGroupId: '',
+  //          exclude: true,
+  //          hidden: true,
+  //          inline: true,
+  //          determining: true,
+          importance: #HIGH
+      }]
+  //      identification: [{ position: 10, label: 'IdLibro[1,...,99999999]'
+  //       }]
+  }
+  @UI.fieldGroup: [{ qualifier: 'hdr_libro' , position: 10, label: 'IDLibro' }]
+
+  @Search.defaultSearchElement: true
+  IdLibro;
+
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'yc_category',
+                                                element: 'Descripcion'} }]
+//  @UI: { fieldGroup: [{ qualifier: 'hdr_libro',
+//                        position: 20}],
+//         selectionField: [{ position: 20 }]}
+@UI.fieldGroup: [{ qualifier: 'hdr_libro' , position: 20, label: 'IDCategoría' }]
+  BiCateg;
+  @UI: { lineItem: [{ position: 30,
+                  importance: #HIGH }],
+
+  identification: [{
+  //      qualifier: 'Libro',
+      position: 20,
+      actionGroupId: '',
+  //      exclude: true,
+  //      hidden: true,
+      inline: true,
+  //      determining: true,
+      importance: #HIGH,
+      emphasized: true,
+      isPartOfPreview: true,
+      cssDefault: {
+          width: ''
+      },
+      type: #STANDARD,
+      label: 'Desc',
+      iconUrl: '',
+      criticality: 'Editorial',
+      criticalityRepresentation: #WITHOUT_ICON,
+      dataAction: '',
+      isCopyAction: true,
+      navigationAvailable: true,
+      requiresContext: true,
+      invocationGrouping: #ISOLATED,
+      semanticObject: '',
+      semanticObjectAction: ''
+  //      semanticObjectBinding: [{
+  //          localParameter: '',
+  //          localElement: '',
+  //          element: ''
+  //      }],
+  //      value: '',
+  //      valueQualifier: '',
+  //      targetElement: '',
+  //      url: ''
+  }]
+
+
+                  }
+
+  Descripcion;
+  @UI: { lineItem: [{ position: 40,
+                  importance: #HIGH }],
+  identification: [{ position: 10, label: 'Título' }]
+                  }
+  Titulo;
+  @UI: { lineItem: [{ position: 50,
+                  importance: #HIGH }]}
+  @UI.identification: [{ position: 20 }]                  
+  Autor;
+  @UI: { lineItem: [{ position: 60,
+                  importance: #HIGH }]}
+  @UI.identification: [{ position: 20 }]                    
+  Editorial;
+  @UI: { lineItem: [{ position: 70,
+                  importance: #HIGH }]}
+                    @UI.identification: [{ position: 30 }]  
+  Idioma;
+  @UI: { lineItem: [{ position: 80,
+                  importance: #HIGH }]}
+                    @UI.identification: [{ position: 40 }]  
+  Paginas;
+  @UI: { lineItem: [{ position: 90,
+                  importance: #HIGH }]}
+                    @UI.identification: [{ position: 50 }]  
+  Precio;
+  @UI: { lineItem: [{ position: 100,
+                  importance: #HIGH }]}
+                    @UI.identification: [{ position: 60 }]  
+  Moneda;
+  @UI: { lineItem: [{ position: 110,
+                  importance: #HIGH }]}
+                    @UI.identification: [{ position: 70, label: 'Ventas' }]  
+  Ventas;
+  @UI.hidden: true
+  Formato;
+  @UI.hidden: true
+  Url;
+  //    /* Associations */
+  //    _Clientes;
+}
