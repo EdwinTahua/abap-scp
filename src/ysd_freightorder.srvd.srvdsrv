@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition FO'
+define service Ysd_freightorder {
+  expose yc_freightorder;
+  expose yc_freight_package as FreightPackage;
+}

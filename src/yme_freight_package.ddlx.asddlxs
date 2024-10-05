@@ -1,0 +1,68 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI:{
+    headerInfo: {
+    typeName: 'Freight Order Package',
+    typeNamePlural: 'Freight Orders Package',
+    title: {
+        type: #STANDARD,
+//        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'FrightorderNo'
+    }
+}}
+annotate entity yc_freight_package with
+{
+  @UI.facet: [
+
+      {
+          id: 'FreightOrder',
+          label: 'Freight Order',
+          purpose: #HEADER,
+          type: #FIELDGROUP_REFERENCE,
+          targetQualifier: 'hdr_cliente'
+      },
+
+      {
+          id: 'detFO',
+          label: 'General Information',
+          type: #IDENTIFICATION_REFERENCE,
+          position: 10
+      }
+      ]
+
+  @UI: {
+      lineItem: [{
+          position: 10,
+          importance: #HIGH
+      }]
+  }
+
+  @UI.fieldGroup: [{ qualifier: 'detFO' , position: 10, label: 'IDCliente' }]
+  @Search.defaultSearchElement: true
+  FrightorderNo;
+  @UI : { lineItem: [{ position: 20, importance: #HIGH , label: 'PackageNo'}]
+        }
+         
+  PackageNo;
+  @UI : { lineItem: [{ position: 30, importance: #HIGH  }]
+        }
+  PackageDetails;
+  @UI : { lineItem: [{ position: 40, importance: #HIGH  }]
+        }
+//  Material;
+//  @UI : { lineItem: [{ position: 50, importance: #HIGH  }]
+//        }
+  Materialqty;
+  @UI : { lineItem: [{ position: 60, importance: #HIGH  }]
+        }
+  UOM;
+  @UI.identification: [{ position: 70 }]
+  CreatedBy;
+  @UI.identification: [{ position: 80 }]
+  ChangedBy;
+  @UI.identification: [{ position: 90 }]
+  CreatedAt;
+  @UI.identification: [{ position: 100 }]
+  ChangedAt;
+
+}

@@ -1,0 +1,34 @@
+managed implementation in class ybp_c_freightorder unique;
+strict ( 2 );
+
+define behavior for yc_freightorder //alias <alias_name>
+persistent table ytb_freightorder
+lock master
+authorization master ( global, instance )
+//etag master
+//etag master <field_name>
+{
+//  create (features : global);
+//  update (features : instance);
+//  delete (features : instance);
+
+  create ( features : global );
+  update ( precheck );
+  delete (features : instance);
+  field ( readonly ) FrightorderNo;
+//  action ( features : instance ) encrip result[1] $self;
+  association _FreightPackege { create; }
+}
+
+define behavior for yc_freight_package //alias <alias_name>
+persistent table ytb_freight_pack
+lock dependent by _FreightOrder
+authorization dependent by _FreightOrder
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) FrightorderNo, PackageNo;
+  field (readonly) ChangedAt, ChangedBy, CreatedAt, CreatedBy;
+  association _FreightOrder;
+}

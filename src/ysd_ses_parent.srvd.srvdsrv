@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition xls'
+define service Ysd_SES_PARENT {
+  expose yC_SES_PARENT;
+  expose Yc_SES_EXCEL_DATA;
+}

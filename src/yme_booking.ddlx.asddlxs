@@ -1,0 +1,182 @@
+@Metadata.layer: #CORE
+//@Search.searchable: true
+@UI:{
+    headerInfo: {
+    typeName: 'Booking',
+    typeNamePlural: 'Bookings',
+    title: {
+        type: #STANDARD,
+//        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'BookingId'
+    }
+}}
+annotate entity y_c_booking
+    with 
+{
+//@UI.facet: [
+//
+//    {
+//        id: 'DetallesCliente',
+//        label: 'Lista Clientes2',
+//        purpose: #STANDARD,
+//        type: #IDENTIFICATION_REFERENCE,
+//        targetQualifier: 'hdr_cliente'
+//    },
+//
+//        {
+//            id: 'Booking',
+//            purpose: #STANDARD,
+//            type: #LINEITEM_REFERENCE,
+//            label: 'Booking',
+//            position: 20,
+//            targetElement: '_booking_supplement'
+//        }  ,
+//
+//    {
+//        id: 'DetallesCliente',
+//        label: 'General Information',
+//        type: #COLLECTION,
+//        position: 10
+//    },
+//        {
+//            id: 'Cliente',
+//            parentId: 'DetallesCliente',
+//            purpose: #STANDARD,
+//            type: #IDENTIFICATION_REFERENCE,
+//            label: 'Detalles-Cliente',
+//            position: 10
+//    //          targetElement: 'NombreCompleto'
+//        },
+//
+//        {
+//    type: #FIELDGROUP_REFERENCE ,
+//               label : 'Datos Contacto',
+//               targetQualifier: 'fgContacto' ,
+//               parentId: 'DetallesCliente' ,
+//               id : 'idGroupContacto' ,
+//               position: 20
+//        }
+//    ]
+
+  @UI.facet: [{
+        id: 'Booking',
+        purpose: #STANDARD,
+        position: 10,
+        label: 'Booking',
+        type: #IDENTIFICATION_REFERENCE },
+        {
+            id: 'BookingSupplement',
+            purpose: #STANDARD,
+            type: #LINEITEM_REFERENCE,
+            label: 'BookingSupplement',
+            position: 20,
+            targetElement: '_booking_supplement'
+        }
+    ]
+//  @UI.hidden: true
+    
+    BookingUuid;
+  @UI : { lineItem: [{ position: 10,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 10, label: 'TravelID' }]    
+    TravelUuid;
+  @UI : { lineItem: [{ position: 20,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 20, label: 'BookingID' }]       
+    BookingId;
+  @UI : { lineItem: [{ position: 30,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 30, label: 'BookingDate' }]     
+    BookingDate;
+@UI : { lineItem: [{ position: 40,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 40, label: 'CustomerId' }]        
+    CustomerId;
+@UI : { lineItem: [{ position: 50,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 50, label: 'AirlineID' }]       
+    AirlineID;
+@UI : { lineItem: [{ position: 60,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 60, label: 'ConnectionId' }]      
+    ConnectionId;
+@UI : { lineItem: [{ position: 70,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 70, label: 'FlightDate' }]      
+    FlightDate;
+@UI : { lineItem: [{ position: 80,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 80, label: 'FlightPrice' }]      
+    FlightPrice;
+@UI : { lineItem: [{ position: 90,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 90, label: 'CurrencyCode' }]      
+    CurrencyCode;
+@UI : { lineItem: [{ position: 100,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 100, label: 'BookingStatus' }]      
+    BookingStatus;
+@UI : { lineItem: [{ position: 110,
+                       importance: #HIGH }]
+  //           fieldGroup: [{ qualifier: 'DetallesCliente',
+  //                          position: 40 }]
+  //  identification: [{ position: 30, label: 'Nombre' }]
+        }
+  //@UI.fieldGroup: [{ qualifier: 'fgDetCliente' , position: 30 }]
+  @UI.identification: [{ position: 110, label: 'LocalLastChangedAt' }]      
+    LocalLastChangedAt;
+    /* Associations */
+//    _booking_supplement;
+//    _Travel;
+    
+}

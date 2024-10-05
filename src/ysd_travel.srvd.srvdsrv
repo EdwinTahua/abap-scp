@@ -1,0 +1,15 @@
+@EndUserText.label: 'SB Travel'
+define service Ysd_travel {
+  expose y_c_travel            as Travel;
+  expose y_c_booking           as Booking;
+  expose y_c_book_suppl        as BookingSupplement;
+  expose /DMO/I_Supplement     as Supplement;
+  expose /DMO/I_SupplementText as SupplementText;
+  expose /DMO/I_Customer       as Customer;
+  expose /DMO/I_Agency         as Agency;
+  expose /DMO/I_Carrier        as AirLine;
+  expose /DMO/I_Connection     as FlightConnection;
+  expose /DMO/I_Flight         as Flight;
+  expose I_Currency            as Currency;
+  expose I_Country             as Country;
+}

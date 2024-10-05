@@ -1,0 +1,5 @@
+CLASS ybp_c_freightorder DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF yc_freightorder.
+ENDCLASS.
+
+CLASS ybp_c_freightorder IMPLEMENTATION.
+ENDCLASS.
