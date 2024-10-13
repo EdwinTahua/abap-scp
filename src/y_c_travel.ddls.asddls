@@ -13,17 +13,17 @@ define root view entity y_c_travel
       @Search.fuzzinessThreshold: 0.3 //0.1 0.2 0.3 0.4 0.8
       TravelId,
       @Search.defaultSearchElement: true
-      @ObjectModel.text.element: [ 'AgencyName' ]
+//      @ObjectModel.text.element: [ 'AgencyName' ]
       @Consumption.valueHelpDefinition: [{ entity: { name : '/DMO/I_Agency_StdVH',
-                                                     element: 'AgencyId'
+                                                     element: 'AgencyID'
                                                       },
                                                       useForValidation: true
                                                       }]
-      AgencyId,
+      AgencyID,
       _Agency.Name       as AgencyName,
       @Search.defaultSearchElement: true
       @Consumption.valueHelpDefinition: [{ entity: { name : '/DMO/I_Customer_StdVH',
-                                                     element: 'CustomerId'
+                                                     element: 'CustomerID'
                                                       },
                                                       useForValidation: true
                                                       }]

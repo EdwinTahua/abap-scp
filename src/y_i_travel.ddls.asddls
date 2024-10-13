@@ -9,7 +9,7 @@ as projection on y_r_travel_et
 {
     key TravelUuid,
     TravelId,
-    AgencyId,
+    AgencyID as AgencyID,
     CustomerId,
     BeginDate,
     EndDate,
